@@ -1,0 +1,7 @@
+Codes couleur RGB en hexa
+
+Rouge : a84b39
+Bleu : 4d637e
+Jaune : f7c283
+Blanc : f7ece2
+Noir : 0d0a08
