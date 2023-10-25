@@ -14251,13 +14251,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootingPoint: {fileID: 894672865}
   bulletPrefab: {fileID: 1571433468303069383, guid: 8de53a607ca78334097828ec7d9b76d3, type: 3}
-  maxmun: 10
-  maxmun2: 10
-  relmun: 0
+  bulletPrefab2: {fileID: 1571433468303069383, guid: 8de53a607ca78334097828ec7d9b76d3, type: 3}
   Player: {fileID: 1852288197}
   reloadTime: 0.6
-  Mun: {fileID: 1966299900}
-  Mun2: {fileID: 1759977102}
 --- !u!1 &1909849450
 GameObject:
   m_ObjectHideFlags: 0

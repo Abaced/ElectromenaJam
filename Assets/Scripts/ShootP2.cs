@@ -72,24 +72,26 @@ public class ShootP2 : MonoBehaviour
 
         }*/
 
-        if (Input.GetKey("d"))
+        if (Input.GetKey("d") && !reloading)
         {
             Instantiate(bulletPrefab, ShootingPoint.position, ShootingPoint.transform.rotation);
             reloading = true;
             Player.Recul();
+            StartCoroutine(waitShoot());
 
-            if(fire != 2)
+            if (fire != 2)
             {
                 fire += 1;
             }
         }
-        if (Input.GetKey("b"))
+        if (Input.GetKey("b") && !reloading)
         {
             Instantiate(bulletPrefab2, ShootingPoint.position, ShootingPoint.transform.rotation);
             reloading = true;
             Player.Recul();
+            StartCoroutine(waitShoot());
 
-            if(ice != 2)
+            if (ice != 2)
             {
                 ice += 1;
             }

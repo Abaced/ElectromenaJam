@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
 
             rb.velocity = direction * Mathf.Max(speed, 0f);
         }
-        
+
     }
 
     /*public void TakeDamage(float damage)
@@ -107,6 +107,19 @@ public class Player : MonoBehaviour
         {
 
             gameObject.SetActive(false);
+        }
+    }
+
+    public void Burst(float burst)
+    {
+        CurrentLife -= burst;
+        SliderPV.value = (float)CurrentLife / (float)MaxLife;
+        if (CurrentLife <= 0)
+        {
+
+            gameObject.SetActive(false);
+            SliderPV.value = (float)CurrentLife / (float)MaxLife;
+
         }
     }
 
