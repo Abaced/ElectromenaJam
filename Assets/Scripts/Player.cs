@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -12,6 +13,8 @@ public class Player : MonoBehaviour
 
     public Player Ennemy;
     public Slider SliderPV;
+    [SerializeField]private Material _lifeMaterial;
+    private int _percentage = Shader.PropertyToID("_Slider");
 
     public Vector3 rotation;
     private int speed = 1;
@@ -22,16 +25,18 @@ public class Player : MonoBehaviour
     Vector3 lastVelocity;
 
     public GameObject recul;
-    Vector3 reculdir;
+    Vector3 reculDir;
 
-    public float Fast = 0.0001f;
+    public float fast = 0.0001f;
 
-    public float SlimeFast = 0.5f;
-    public float SlimeFastSave =1f;
-    public bool Isbumping;
-    public float HiverTime = 10f;
+    public float slimeFast = 0.5f;
+    public float slimeFastSave =1f;
+    public bool isBumping;
+    public float hiverTime = 10f;
     
     private GameObject Frig;
+    
+    
 
     //private bool Hiver = false;
 
@@ -40,7 +45,7 @@ public class Player : MonoBehaviour
     {
         speed = savespeed;
         CurrentLife = MaxLife;
-        SliderPV.value = (float)CurrentLife / (float)MaxLife;
+        _lifeMaterial.SetFloat(_percentage, (float)CurrentLife / (float)MaxLife);
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -59,7 +64,7 @@ public class Player : MonoBehaviour
         this.transform.Rotate(rotation * 1 * Time.deltaTime);
         lastVelocity = rb.velocity;
 
-        reculdir = recul.transform.position;
+        reculDir = recul.transform.position;
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
@@ -97,7 +102,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         CurrentLife -= damage;
-        SliderPV.value = (float)CurrentLife / (float)MaxLife;
+        _lifeMaterial.SetFloat(_percentage, (float)CurrentLife / (float)MaxLife);
         if (CurrentLife <= 0)
         {
 
@@ -121,35 +126,35 @@ public class Player : MonoBehaviour
     IEnumerator Speed()
     {
         speed = 20;
-        yield return new WaitForSeconds(Fast);
+        yield return new WaitForSeconds(fast);
         speed = savespeed;
     }
 
     IEnumerator Slimespeed()
     {
 
-        SlimeFast = SlimeFastSave;
+        slimeFast = slimeFastSave;
         speed = 25;
-        if (Isbumping == true)
+        if (isBumping == true)
         {
-            SlimeFast = SlimeFast + 0.5f;
+            slimeFast = slimeFast + 0.5f;
         }
 
         /*else
         {
             speed = 2;
         }*/
-        Isbumping = true;
-        yield return new WaitForSeconds(SlimeFast);
+        isBumping = true;
+        yield return new WaitForSeconds(slimeFast);
         speed = savespeed;
-        Isbumping = false;
+        isBumping = false;
     }
 
     IEnumerator Winter()
     {
         speed = 1;
         this.GetComponent<SpriteRenderer>().color = new Color32(0, 255, 224, 255);
-        yield return new WaitForSeconds(HiverTime);
+        yield return new WaitForSeconds(hiverTime);
         this.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         speed = savespeed;
         yield return new WaitForSeconds(10f);
