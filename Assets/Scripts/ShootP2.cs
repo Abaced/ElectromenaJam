@@ -8,32 +8,38 @@ public class ShootP2 : MonoBehaviour
 
     public Transform ShootingPoint;
     public GameObject bulletPrefab;
+    public GameObject bulletPrefab2;
     private bool reloading;
-    private float munition;
-    private float munition2;
-    public float maxmun =10;
-    public float maxmun2 =10;
-    public float relmun;
+    //private float munition;
+    //private float munition2;
+    //public float maxmun =10;
+    //public float maxmun2 =10;
+    //public float relmun;
 
     public Player Player;
     public float reloadTime;
 
-    public Text Mun;
-    public Text Mun2;
+    private float fire;
+    private float ice;
+
+    //public Text Mun;
+    //public Text Mun2;
 
     // Start is called before the first frame update
     void Start()
     {
-        munition = maxmun;
-        munition2 = maxmun2;
-        Mun.text = munition.ToString();
-        Mun2.text = munition2.ToString();       
+        //    munition = maxmun;
+        //    munition2 = maxmun2;
+        //    Mun.text = munition.ToString();
+        //    Mun2.text = munition2.ToString();
+        fire = 0;
+        ice = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("d") && !reloading && munition >= 1)
+        /*if (Input.GetKey("d") && !reloading && munition >= 1)
         {
             Instantiate(bulletPrefab, ShootingPoint.position, ShootingPoint.transform.rotation);
             munition -= 1;
@@ -64,6 +70,37 @@ public class ShootP2 : MonoBehaviour
             munition = maxmun;
             Mun.text = munition.ToString();
 
+        }*/
+
+        if (Input.GetKey("d") && !reloading)
+        {
+            Instantiate(bulletPrefab, ShootingPoint.position, ShootingPoint.transform.rotation);
+            reloading = true;
+            Player.Recul();
+            StartCoroutine(waitShoot());
+
+            if (fire != 2)
+            {
+                fire += 1;
+            }
+        }
+        if (Input.GetKey("b") && !reloading)
+        {
+            Instantiate(bulletPrefab2, ShootingPoint.position, ShootingPoint.transform.rotation);
+            reloading = true;
+            Player.Recul();
+            StartCoroutine(waitShoot());
+
+            if (ice != 2)
+            {
+                ice += 1;
+            }
+        }
+        if (ice ==2 && fire == 2)
+        {
+            Player.Burst(30);
+            ice = 0;
+            fire = 0;
         }
 
     }
