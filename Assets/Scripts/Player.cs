@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -35,6 +36,9 @@ public class Player : MonoBehaviour
     public float hiverTime = 10f;
     
     private GameObject Frig;
+
+
+    public UnityEvent OnTakeDamage;
     
     
 
@@ -101,6 +105,7 @@ public class Player : MonoBehaviour
     }*/
     public void TakeDamage(float damage)
     {
+        OnTakeDamage.Invoke();
         CurrentLife -= damage;
         _lifeMaterial.SetFloat(_percentage, (float)CurrentLife / (float)MaxLife);
         if (CurrentLife <= 0)
