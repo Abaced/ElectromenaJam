@@ -99,6 +99,14 @@ public class Player : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D trig)
+    {
+        if (trig.gameObject.tag == "snowBall")
+        {
+            StartCoroutine(Winter());
+        }
+    }
+
     /*public void TakeDamage(float damage)
     {
         this.SetLife(this.CurrentLife - damage);
