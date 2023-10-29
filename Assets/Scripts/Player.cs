@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     public UnityEvent OnTakeDamage;
     
     
+    
 
     //private bool Hiver = false;
 
@@ -65,7 +66,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(PlayerDirection.x * speed, PlayerDirection.y * speed);
-        this.transform.Rotate(rotation * 1 * Time.deltaTime);
+        transform.Rotate(rotation * 1 * Time.deltaTime);
         lastVelocity = rb.velocity;
 
         reculDir = recul.transform.position;

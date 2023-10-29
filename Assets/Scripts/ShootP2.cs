@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class ShootP2 : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class ShootP2 : MonoBehaviour
 
     private float fire;
     private float ice;
+    public UnityEvent OnShoot;
 
     //public Text Mun;
     //public Text Mun2;
@@ -78,6 +80,7 @@ public class ShootP2 : MonoBehaviour
             reloading = true;
             Player.Recul();
             StartCoroutine(waitShoot());
+            OnShoot.Invoke();
 
             if (fire != 2)
             {
@@ -90,6 +93,7 @@ public class ShootP2 : MonoBehaviour
             reloading = true;
             Player.Recul();
             StartCoroutine(waitShoot());
+            OnShoot.Invoke();
 
             if (ice != 2)
             {

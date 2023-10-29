@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 
@@ -17,6 +18,7 @@ public class Shoot : MonoBehaviour
 
     public Player Player;
     public float reloadTime;
+    public UnityEvent OnShoot;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,7 @@ public class Shoot : MonoBehaviour
         if (Input.GetKey("a") && !reloading && munition >= 1)
         {
             Instantiate(bulletPrefab, ShootingPoint.position, ShootingPoint.transform.rotation);
+            OnShoot.Invoke();
             munition -= 1;
             reloading = true;
             Player.Recul();
