@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
 
     public UnityEvent OnTakeDamage;
     
+    public int idPlayer; 
+    
     
     
 

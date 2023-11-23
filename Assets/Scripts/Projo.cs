@@ -7,6 +7,9 @@ public class Projo : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     public float lifeTime = 5.0f;
+    private int id;
+
+    [HideInInspector] public int idBullet;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +31,14 @@ public class Projo : MonoBehaviour
 
         if (Player != null)
         {
-            Player.TakeDamage(20);
+            int id = collision.GetComponent<Player>().idPlayer;
+            Debug.Log(id);
+
+            if (id == idBullet)
+            {
+                Player.TakeDamage(20);
+            }
         }
-        Destroy(gameObject);
+            Destroy(gameObject);
     }
 }

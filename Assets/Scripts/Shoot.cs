@@ -18,6 +18,7 @@ public class Shoot : MonoBehaviour
 
     public Player Player;
     public float reloadTime;
+
     public UnityEvent OnShoot;
 
     // Start is called before the first frame update
@@ -32,7 +33,9 @@ public class Shoot : MonoBehaviour
     {
         if (Input.GetKey("a") && !reloading && munition >= 1)
         {
-            Instantiate(bulletPrefab, ShootingPoint.position, ShootingPoint.transform.rotation);
+
+            Projo projo = Instantiate(bulletPrefab, ShootingPoint.position, ShootingPoint.transform.rotation).GetComponent<Projo>();
+            projo.idBullet = 1;
             OnShoot.Invoke();
             munition -= 1;
             reloading = true;
@@ -40,18 +43,6 @@ public class Shoot : MonoBehaviour
             Mun.text = munition.ToString();
             StartCoroutine(waitShoot());
         }
-
-        /*if (Input.GetKey("c") && munition == 0)
-        {
-            Mun.text = relmun.ToString();
-            relmun += 1;
-            if (relmun == maxmun)
-            {
-                munition = relmun;
-                Mun.text = munition.ToString();
-                relmun = 0;
-            }
-        }*/
 
         if (Input.GetKey("c") && munition != maxmun )
         {
