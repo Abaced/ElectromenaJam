@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -48,6 +49,29 @@ public class Shoot : MonoBehaviour
         {
             munition += 1;
             Mun.text = munition.ToString();
+        }
+    }
+    private void OnTriggerEnter2D (Collider2D other)
+    {
+        if (other.gameObject.tag == "rebond")
+        {
+
+        }
+        if (other.gameObject.tag == "vitesseTir")
+        {
+
+        }
+        if (other.gameObject.tag == "shield")
+        {
+
+        }
+        if (other.gameObject.tag == "tripleTir")
+        {
+
+        }
+        if (other.gameObject.tag == "critique")
+        {
+
         }
     }
 

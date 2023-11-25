@@ -42,12 +42,6 @@ public class Player : MonoBehaviour
     
     public int idPlayer; 
     
-    
-    
-
-    //private bool Hiver = false;
-
-
     void Awake()
     {
         speed = savespeed;
@@ -110,10 +104,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    /*public void TakeDamage(float damage)
-    {
-        this.SetLife(this.CurrentLife - damage);
-    }*/
     public void TakeDamage(float damage)
     {
         OnTakeDamage.Invoke();
@@ -169,10 +159,6 @@ public class Player : MonoBehaviour
             slimeFast = slimeFast + 0.5f;
         }
 
-        /*else
-        {
-            speed = 2;
-        }*/
         isBumping = true;
         yield return new WaitForSeconds(slimeFast);
         speed = savespeed;

@@ -8,6 +8,11 @@ public class Projo : MonoBehaviour
     private Rigidbody2D rb;
     public float lifeTime = 5.0f;
     private int id;
+    
+
+    private bool rebond;
+    private Vector2 bulletDirection;
+    Vector3 lastVelocity;
 
     [HideInInspector] public int idBullet;
 
@@ -22,7 +27,8 @@ public class Projo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        rb.velocity = new Vector2(bulletDirection.x * speed, bulletDirection.y * speed);
+        lastVelocity = rb.velocity;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,5 +46,16 @@ public class Projo : MonoBehaviour
             }
         }
             Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if(rebond == true)
+        {
+            var speed = lastVelocity.magnitude;
+            var direction = Vector3.Reflect(lastVelocity.normalized, coll.contacts[0].normal);
+            bulletDirection = direction;
+        }
+        
     }
 }
