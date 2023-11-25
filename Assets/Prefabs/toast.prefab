@@ -189,6 +189,10 @@ MonoBehaviour:
   slimeFastSave: 1
   isBumping: 0
   hiverTime: 10
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  idPlayer: 0
 --- !u!114 &3503768990653321496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +212,9 @@ MonoBehaviour:
   Mun: {fileID: 0}
   Player: {fileID: 2374680808556822109}
   reloadTime: 1.5
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4836099571343922875
 GameObject:
   m_ObjectHideFlags: 0

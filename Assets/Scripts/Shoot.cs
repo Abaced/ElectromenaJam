@@ -55,7 +55,8 @@ public class Shoot : MonoBehaviour
     {
         if (other.gameObject.tag == "rebond")
         {
-
+            bulletPrefab.GetComponent<Projo>().rebond = true;
+            bulletPrefab.GetComponent<Projo>().nbRebond += 1 ;
         }
         if (other.gameObject.tag == "vitesseTir")
         {

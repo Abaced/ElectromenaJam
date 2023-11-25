@@ -8,9 +8,10 @@ public class Projo : MonoBehaviour
     private Rigidbody2D rb;
     public float lifeTime = 5.0f;
     private int id;
-    
 
-    private bool rebond;
+    private int rebondCount = 0;
+    public int nbRebond;
+    public bool rebond;
     private Vector2 bulletDirection;
     Vector3 lastVelocity;
 
@@ -19,6 +20,7 @@ public class Projo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nbRebond = 3;
         Destroy(gameObject, lifeTime);
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
@@ -27,7 +29,6 @@ public class Projo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(bulletDirection.x * speed, bulletDirection.y * speed);
         lastVelocity = rb.velocity;
     }
 
@@ -43,19 +44,27 @@ public class Projo : MonoBehaviour
             if (id == idBullet)
             {
                 Player.TakeDamage(20);
+                Destroy(gameObject);
             }
         }
-            Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        if(rebond == true)
+        rebondCount = rebondCount + 1;
+
+        if (rebond == true && rebondCount < nbRebond)
         {
             var speed = lastVelocity.magnitude;
             var direction = Vector3.Reflect(lastVelocity.normalized, coll.contacts[0].normal);
-            bulletDirection = direction;
+
+            rb.velocity = direction * Mathf.Max(speed, 0f);
+            Debug.Log(rebondCount);
+
         }
-        
+        if (rebondCount >= nbRebond)
+        {
+            Destroy(gameObject);
+        }
     }
 }
