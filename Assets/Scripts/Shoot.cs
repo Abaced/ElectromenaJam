@@ -60,7 +60,8 @@ public class Shoot : MonoBehaviour
         }
         if (other.gameObject.tag == "vitesseTir")
         {
-
+            bulletPrefab.GetComponent<Projo>().speed += 5;
+            reloadTime =- 0.2
         }
         if (other.gameObject.tag == "shield")
         {
