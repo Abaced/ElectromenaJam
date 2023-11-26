@@ -194,6 +194,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  idPlayer: 0
 --- !u!114 &3481396185119212684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,13 +209,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootingPoint: {fileID: 3128191553660363207}
   bulletPrefab: {fileID: 1571433468303069383, guid: 8de53a607ca78334097828ec7d9b76d3, type: 3}
-  maxmun: 10
-  maxmun2: 10
-  relmun: 0
+  bulletPrefab2: {fileID: 0}
   Player: {fileID: 741710963007002411}
   reloadTime: 0.6
-  Mun: {fileID: 0}
-  Mun2: {fileID: 0}
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &5352030250064957323
 Rigidbody2D:
   serializedVersion: 4

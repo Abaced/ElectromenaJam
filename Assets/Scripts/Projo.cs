@@ -16,6 +16,7 @@ public class Projo : MonoBehaviour
     Vector3 lastVelocity;
 
     [HideInInspector] public int idBullet;
+    public bool shield;
 
     // Start is called before the first frame update
     void Start()
@@ -41,11 +42,13 @@ public class Projo : MonoBehaviour
             int id = collision.GetComponent<Player>().idPlayer;
             Debug.Log(id);
 
-            if (id == idBullet)
+            if (id == idBullet && shield == false)
             {
                 Player.TakeDamage(20);
                 Destroy(gameObject);
             }
+            shield = false;
+
         }
     }
 
@@ -62,7 +65,11 @@ public class Projo : MonoBehaviour
             Debug.Log(rebondCount);
 
         }
-        if (rebondCount >= nbRebond)
+        else if (rebondCount >= nbRebond)
+        {
+            Destroy(gameObject);
+        }
+        else if (rebond == false)
         {
             Destroy(gameObject);
         }
