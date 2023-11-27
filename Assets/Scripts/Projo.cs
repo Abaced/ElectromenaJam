@@ -16,7 +16,7 @@ public class Projo : MonoBehaviour
     Vector3 lastVelocity;
 
     public int dmg;
-    private bool shield ;
+    public bool shield;
 
     [HideInInspector] public int idBullet;
 
