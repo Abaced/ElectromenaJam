@@ -15,8 +15,10 @@ public class Projo : MonoBehaviour
     private Vector2 bulletDirection;
     Vector3 lastVelocity;
 
+    public int dmg;
+    private bool shield ;
+
     [HideInInspector] public int idBullet;
-    public bool shield;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,8 @@ public class Projo : MonoBehaviour
         Destroy(gameObject, lifeTime);
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
+        dmg = 20;
+        shield = false;
     }
 
     // Update is called once per frame
@@ -41,10 +45,11 @@ public class Projo : MonoBehaviour
         {
             int id = collision.GetComponent<Player>().idPlayer;
             Debug.Log(id);
+            bool shield = collision.GetComponent<Player>().shield;
 
             if (id == idBullet && shield == false)
             {
-                Player.TakeDamage(20);
+                Player.TakeDamage(dmg);
                 Destroy(gameObject);
             }
             shield = false;

@@ -22,11 +22,29 @@ public class Shoot : MonoBehaviour
 
     public UnityEvent OnShoot;
 
+    private int ajoutRebond;
+
+    private bool bounce;
+    private bool munSpeed;
+    private bool crit;
+
+
+    private int randomNumber;
+    private int critChance;
+    private int projospeed;
+    private int critDmg;
+
     // Start is called before the first frame update
     void Start()
     {
+        bounce = false;
+        munSpeed = false;
+        crit = false;
         munition = maxmun;
         Mun.text = munition.ToString();
+        ajoutRebond = 0;
+        critChance = 0;
+        projospeed = 0;
     }
 
     // Update is called once per frame
@@ -37,6 +55,24 @@ public class Shoot : MonoBehaviour
 
             Projo projo = Instantiate(bulletPrefab, ShootingPoint.position, ShootingPoint.transform.rotation).GetComponent<Projo>();
             projo.idBullet = 1;
+
+            if (bounce == true)
+            {
+                projo.rebond = true;
+                projo.nbRebond = ajoutRebond;
+            }
+            if (munSpeed == true)
+            {
+                projo.speed = projospeed ;
+            }
+            if (crit == true)
+            {
+                randomNumber = Random.Range(0, 10);
+                if (randomNumber <= critChance)
+                {
+                    projo.dmg += critDmg;
+                }
+            }
             OnShoot.Invoke();
             munition -= 1;
             reloading = true;
@@ -55,26 +91,20 @@ public class Shoot : MonoBehaviour
     {
         if (other.gameObject.tag == "rebond")
         {
-            bulletPrefab.GetComponent<Projo>().rebond = true;
-            bulletPrefab.GetComponent<Projo>().nbRebond += 1 ;
+            bounce = true;
+            ajoutRebond += 1;
+            projospeed += 5;
         }
         if (other.gameObject.tag == "vitesseTir")
         {
-            bulletPrefab.GetComponent<Projo>().speed += 5;
+            munSpeed = true;
             reloadTime =- 0.2f;
-        }
-        if (other.gameObject.tag == "shield")
-        {
-            bulletPrefab.GetComponent<Projo>().shield = true;
-
-        }
-        if (other.gameObject.tag == "tripleTir")
-        {
-
         }
         if (other.gameObject.tag == "critique")
         {
-
+            crit = true;
+            critChance += 2;
+            critDmg += 3;
         }
     }
 
@@ -83,5 +113,4 @@ public class Shoot : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
         reloading = false;                           
     }
-
 }

@@ -40,7 +40,9 @@ public class Player : MonoBehaviour
 
     public UnityEvent OnTakeDamage;
     
-    public int idPlayer; 
+    public int idPlayer;
+
+    public bool shield;
     
     void Awake()
     {
@@ -55,7 +57,7 @@ public class Player : MonoBehaviour
 
         PlayerDirection = new Vector2(directionX, directionY).normalized;
 
-
+        shield = false;
 
     }
 
@@ -102,10 +104,18 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(Winter());
         }
+
+        if (trig.gameObject.tag == "shield")
+        {
+            shield = true;
+        }
     }
 
     public void TakeDamage(float damage)
     {
+
+       
+        
         OnTakeDamage.Invoke();
         CurrentLife -= damage;
         _lifeMaterial.SetFloat(_percentage, (float)CurrentLife / (float)MaxLife);
@@ -114,6 +124,7 @@ public class Player : MonoBehaviour
 
             gameObject.SetActive(false);
         }
+        
     }
 
     public void Burst(float burst)
