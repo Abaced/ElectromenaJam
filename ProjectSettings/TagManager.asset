@@ -7,6 +7,10 @@ TagManager:
   - Slime
   - Micro
   - Frigo
+  - rebond
+  - vitesseTir
+  - critique
+  - shield
   layers:
   - Default
   - TransparentFX

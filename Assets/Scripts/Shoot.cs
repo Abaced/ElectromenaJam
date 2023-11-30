@@ -30,9 +30,10 @@ public class Shoot : MonoBehaviour
 
 
     private int randomNumber;
-    private int critChance;
+    public int critChance;
     private int projospeed;
-    private int critDmg;
+    public int critDmg;
+    private int dmgTotal;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +71,8 @@ public class Shoot : MonoBehaviour
                 randomNumber = Random.Range(0, 10);
                 if (randomNumber <= critChance)
                 {
-                    projo.dmg += critDmg;
+                    Debug.Log("Crit");
+                    projo.critdmg =  critDmg;
                 }
             }
             OnShoot.Invoke();
@@ -94,17 +96,20 @@ public class Shoot : MonoBehaviour
             bounce = true;
             ajoutRebond += 1;
             projospeed += 5;
+            Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "vitesseTir")
         {
             munSpeed = true;
-            reloadTime =- 0.2f;
+            reloadTime = -0.2f;
+            Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "critique")
         {
             crit = true;
             critChance += 2;
             critDmg += 3;
+            Destroy(other.gameObject);
         }
     }
 

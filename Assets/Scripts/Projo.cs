@@ -16,7 +16,7 @@ public class Projo : MonoBehaviour
     Vector3 lastVelocity;
 
     public int dmg;
-    public bool shield;
+    public int critdmg;
 
     [HideInInspector] public int idBullet;
 
@@ -28,7 +28,6 @@ public class Projo : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
         dmg = 20;
-        shield = false;
     }
 
     // Update is called once per frame
@@ -45,14 +44,15 @@ public class Projo : MonoBehaviour
         {
             int id = collision.GetComponent<Player>().idPlayer;
             Debug.Log(id);
-            bool shield = collision.GetComponent<Player>().shield;
 
-            if (id == idBullet && shield == false)
+            if (id == idBullet)
             {
+                dmg += critdmg;
+                Debug.Log(dmg);
                 Player.TakeDamage(dmg);
+                dmg = 20;
                 Destroy(gameObject);
             }
-            shield = false;
 
         }
     }

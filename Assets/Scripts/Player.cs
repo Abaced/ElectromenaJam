@@ -39,10 +39,14 @@ public class Player : MonoBehaviour
 
 
     public UnityEvent OnTakeDamage;
-    
-    public int idPlayer;
 
-    public bool shield;
+    [HideInInspector] public int idPlayer;
+
+    [HideInInspector] public bool shield;
+
+    public GameObject dmgBubblePrefab;
+    private float dmg;
+    public Transform bubblePoint;
     
     void Awake()
     {
@@ -103,29 +107,37 @@ public class Player : MonoBehaviour
         if (trig.gameObject.tag == "snowBall")
         {
             StartCoroutine(Winter());
+            Destroy(trig.gameObject);
         }
 
         if (trig.gameObject.tag == "shield")
         {
             shield = true;
+            Destroy(trig.gameObject);
         }
+
     }
 
     public void TakeDamage(float damage)
     {
-
-       
-        
-        OnTakeDamage.Invoke();
-        CurrentLife -= damage;
-        _lifeMaterial.SetFloat(_percentage, (float)CurrentLife / (float)MaxLife);
-        if (CurrentLife <= 0)
+        if (shield == false)
         {
+            OnTakeDamage.Invoke();
+            CurrentLife -= damage;
+            dmg = damage;
 
-            gameObject.SetActive(false);
+            DmgBuble dmgBuble = Instantiate(dmgBubblePrefab, bubblePoint.position, bubblePoint.transform.rotation).GetComponent<DmgBuble>();
+            dmgBuble.dmgValue = dmg;
+
+            _lifeMaterial.SetFloat(_percentage, (float)CurrentLife / (float)MaxLife);
+            if (CurrentLife <= 0)
+            {
+                gameObject.SetActive(false);
+            }
         }
-        
+        shield = false;
     }
+
 
     public void Burst(float burst)
     {
