@@ -21,5 +21,14 @@ public class DmgBuble : MonoBehaviour
     {
         dmgTxt = dmgValue.ToString();
         text.text = dmgTxt;
+        StartCoroutine(Stop());
+
     }
+    IEnumerator Stop()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+
+    }
+
 }

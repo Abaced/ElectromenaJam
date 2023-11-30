@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public SpriteRenderer Srenderer;
     public PlayerAttack[] Attacks;
 
     public float MaxLife;
@@ -17,7 +18,6 @@ public class Player : MonoBehaviour
     [SerializeField]private Material _lifeMaterial;
     private int _percentage = Shader.PropertyToID("_Slider");
 
-    public Vector3 rotation;
     private int speed = 1;
     public int savespeed = 5;
     private Vector2 PlayerDirection;
@@ -68,7 +68,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(PlayerDirection.x * speed, PlayerDirection.y * speed);
-        transform.Rotate(rotation * 1 * Time.deltaTime);
         lastVelocity = rb.velocity;
 
         reculDir = recul.transform.position;
@@ -191,9 +190,9 @@ public class Player : MonoBehaviour
     IEnumerator Winter()
     {
         speed = 1;
-        this.GetComponent<SpriteRenderer>().color = new Color32(0, 255, 224, 255);
+        Srenderer.GetComponent<SpriteRenderer>().color = new Color32(0, 255, 224, 255);
         yield return new WaitForSeconds(hiverTime);
-        this.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+        Srenderer.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         speed = savespeed;
         yield return new WaitForSeconds(10f);
         Frig.SetActive(true);
