@@ -16,8 +16,8 @@ public class ShootP2 : MonoBehaviour
     public Player Player;
     public float reloadTime;
 
-    private float fire;
-    private float ice;
+    public float fire;
+    public float ice;
 
     public UnityEvent OnShoot;
 
@@ -48,6 +48,22 @@ public class ShootP2 : MonoBehaviour
             Projo projo = Instantiate(bulletPrefab, ShootingPoint.position, ShootingPoint.transform.rotation).GetComponent<Projo>();
             projo.idBullet = 2;
 
+
+            if (fire == 2 && ice == 2)
+            {
+                projo.dmg = 30;
+                fire = 0;
+                ice = 0;
+            }
+            else if (fire != 2 || ice != 2) // 2FIRE + 2ICE
+            {
+                projo.dmg = 10;
+                if (fire != 2)
+                {
+                    fire += 1;
+                }
+            }
+
             if (bounce == true)
             {
                 projo.rebond = true;
@@ -71,11 +87,6 @@ public class ShootP2 : MonoBehaviour
             Player.Recul();
             StartCoroutine(waitShoot());
             OnShoot.Invoke();
-
-            if (fire != 2)
-            {
-                fire += 1;
-            }
         }
 
         if (Input.GetKey("b") && !reloading) //ICE
@@ -83,6 +94,23 @@ public class ShootP2 : MonoBehaviour
             Projo projo = Instantiate(bulletPrefab, ShootingPoint.position, ShootingPoint.transform.rotation).GetComponent<Projo>();
             projo.idBullet = 2;
 
+
+            if (fire == 2 && ice == 2)
+            {
+                projo.dmg = 30;
+                fire = 0;
+                ice = 0;
+            }
+            else if (fire != 2 || ice != 2) // 2FIRE + 2ICE
+            {
+                projo.dmg = 10;
+                if (ice != 2)
+                {
+                    ice += 1;
+
+                }
+            }
+
             if (bounce == true)
             {
                 projo.rebond = true;
@@ -106,20 +134,7 @@ public class ShootP2 : MonoBehaviour
             Player.Recul();
             StartCoroutine(waitShoot());
             OnShoot.Invoke();
-
-            if (ice != 2)
-            {
-                ice += 1;
-            }
         }
-
-        if (ice ==2 && fire == 2) // 2FIRE + 2ICE
-        {
-            Player.Burst(30);
-            ice = 0;
-            fire = 0;
-        }
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)

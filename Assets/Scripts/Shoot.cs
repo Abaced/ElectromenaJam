@@ -56,6 +56,7 @@ public class Shoot : MonoBehaviour
 
             Projo projo = Instantiate(bulletPrefab, ShootingPoint.position, ShootingPoint.transform.rotation).GetComponent<Projo>();
             projo.idBullet = 1;
+            projo.dmg = 20;
 
             if (bounce == true)
             {

@@ -28,12 +28,12 @@ public class Player : MonoBehaviour
     public GameObject recul;
     Vector3 reculDir;
 
-    public float fast = 0.0001f;
+    [HideInInspector] public float fast = 0.0001f;
 
-    public float slimeFast = 0.5f;
-    public float slimeFastSave =1f;
-    public bool isBumping;
-    public float hiverTime = 2f;
+    [HideInInspector] public float slimeFast = 0.5f;
+    [HideInInspector] public float slimeFastSave =1f;
+    [HideInInspector] public bool isBumping;
+    [HideInInspector] public float hiverTime = 2f;
     
     private GameObject Frig;
 

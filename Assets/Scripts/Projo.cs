@@ -27,7 +27,7 @@ public class Projo : MonoBehaviour
         Destroy(gameObject, lifeTime);
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
-        dmg = 20;
+        //dmg = 20;
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class Projo : MonoBehaviour
                 dmg += critdmg;
                 Debug.Log(dmg);
                 Player.TakeDamage(dmg);
-                dmg = 20;
+                //dmg = 20;
                 Destroy(gameObject);
             }
 

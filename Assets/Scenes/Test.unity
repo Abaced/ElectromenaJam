@@ -23505,6 +23505,10 @@ PrefabInstance:
       propertyPath: rotation.z
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 3894534191467746829, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -3204229469960626661, guid: e4e717faa9d2e05438933e89a071b9f1, type: 2}
     - target: {fileID: 3941286455033430555, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.96
@@ -23593,6 +23597,26 @@ PrefabInstance:
       propertyPath: Mun
       value: 
       objectReference: {fileID: 672550785}
+    - target: {fileID: 8477862580299116690, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
+      propertyPath: m_text
+      value: J1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477862580299116690, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e4e717faa9d2e05438933e89a071b9f1, type: 2}
+    - target: {fileID: 8477862580299116690, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3204229469960626661, guid: e4e717faa9d2e05438933e89a071b9f1, type: 2}
+    - target: {fileID: 8477862580299116690, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
+      propertyPath: fast
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: Ennemy
       value: 
@@ -24621,6 +24645,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
+      propertyPath: fast
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
       propertyPath: Ennemy
       value: 
       objectReference: {fileID: 1160405354}
@@ -24699,6 +24727,22 @@ PrefabInstance:
     - target: {fileID: 3798737785673160430, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
       propertyPath: rotation.z
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4187182216542941271, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -3204229469960626661, guid: e4e717faa9d2e05438933e89a071b9f1, type: 2}
+    - target: {fileID: 5151408548875852633, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e4e717faa9d2e05438933e89a071b9f1, type: 2}
+    - target: {fileID: 5151408548875852633, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3204229469960626661, guid: e4e717faa9d2e05438933e89a071b9f1, type: 2}
+    - target: {fileID: 5151408548875852633, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5711910990148793797, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
       propertyPath: m_LocalScale.z
