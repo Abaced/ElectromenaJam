@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     public float slimeFast = 0.5f;
     public float slimeFastSave =1f;
     public bool isBumping;
-    public float hiverTime = 10f;
+    public float hiverTime = 2f;
     
     private GameObject Frig;
 
@@ -128,6 +128,8 @@ public class Player : MonoBehaviour
             DmgBuble dmgBuble = Instantiate(dmgBubblePrefab, bubblePoint.position, bubblePoint.transform.rotation).GetComponent<DmgBuble>();
             dmgBuble.dmgValue = dmg;
 
+            StartCoroutine(DmgVisual());
+
             _lifeMaterial.SetFloat(_percentage, (float)CurrentLife / (float)MaxLife);
             if (CurrentLife <= 0)
             {
@@ -196,5 +198,16 @@ public class Player : MonoBehaviour
         speed = savespeed;
         yield return new WaitForSeconds(10f);
         Frig.SetActive(true);
+    }
+
+    IEnumerator DmgVisual()
+    {
+        Srenderer.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
+        yield return new WaitForSeconds(0.2f);
+        Srenderer.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
+        yield return new WaitForSeconds(0.2f);
+        Srenderer.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
+        yield return new WaitForSeconds(0.2f);
+        Srenderer.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
     }
 }

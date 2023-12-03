@@ -26,7 +26,7 @@ public class DmgBuble : MonoBehaviour
     }
     IEnumerator Stop()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
 
     }
