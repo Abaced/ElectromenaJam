@@ -108,6 +108,7 @@ MonoBehaviour:
   dmg: 0
   critdmg: 0
   idBullet: 0
+  ps: {fileID: 6611188020447114206, guid: 361e853c085483942b4d3bbab0e479e0, type: 3}
 --- !u!70 &1571433468303069381
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

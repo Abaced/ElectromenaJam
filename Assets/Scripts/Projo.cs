@@ -20,6 +20,8 @@ public class Projo : MonoBehaviour
 
     [HideInInspector] public int idBullet;
 
+    [SerializeField] private ParticleSystem ps;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,10 +74,12 @@ public class Projo : MonoBehaviour
         }
         else if (rebondCount >= nbRebond)
         {
+            ps = Instantiate(ps, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (rebond == false)
         {
+            ps = Instantiate(ps, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
