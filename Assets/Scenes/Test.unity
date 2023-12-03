@@ -15791,7 +15791,6 @@ GameObject:
   - component: {fileID: 525870554}
   - component: {fileID: 525870553}
   - component: {fileID: 525870552}
-  - component: {fileID: 525870555}
   m_Layer: 0
   m_Name: Frigo
   m_TagString: Frigo
@@ -15911,27 +15910,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 347995487}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!95 &525870555
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525870551}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8e9fd76ea96148c489f202c1abca69c5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &563260225
 GameObject:
   m_ObjectHideFlags: 0
@@ -23963,7 +23941,7 @@ PrefabInstance:
     - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: SliderPV
       value: 
-      objectReference: {fileID: 5800869991141327887}
+      objectReference: {fileID: 1914534247}
     - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: Srenderer
       value: 
@@ -23972,6 +23950,10 @@ PrefabInstance:
       propertyPath: hiverTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
+      propertyPath: _lifeMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: d819ed82bb9983840b3bdf7787e4b3ff, type: 2}
     - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: dmgBubblePrefab
       value: 
@@ -25006,7 +24988,7 @@ PrefabInstance:
     - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
       propertyPath: SliderPV
       value: 
-      objectReference: {fileID: 1914534247}
+      objectReference: {fileID: 5800869991141327887}
     - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
       propertyPath: Srenderer
       value: 
@@ -25019,6 +25001,10 @@ PrefabInstance:
       propertyPath: bubblePoint
       value: 
       objectReference: {fileID: 563260226}
+    - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
+      propertyPath: _lifeMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 179e6c4374ac07f4ea783283133c531e, type: 2}
     - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
       propertyPath: dmgBubblePrefab
       value: 
