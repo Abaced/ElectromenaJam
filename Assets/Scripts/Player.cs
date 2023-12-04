@@ -47,6 +47,10 @@ public class Player : MonoBehaviour
     public GameObject dmgBubblePrefab;
     private float dmg;
     public Transform bubblePoint;
+
+    public float variableToChange;
+    public float changePerSecond;
+    public float maxSpeed;
     
     void Awake()
     {
@@ -71,6 +75,15 @@ public class Player : MonoBehaviour
         lastVelocity = rb.velocity;
 
         reculDir = recul.transform.position;
+
+        variableToChange += changePerSecond * Time.deltaTime;
+        if (variableToChange >= 10 && savespeed != maxSpeed) 
+        {
+            savespeed += 1;
+            variableToChange = 0;
+            Debug.Log(savespeed);
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D coll)

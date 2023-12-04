@@ -23943,6 +23943,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1914534247}
     - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: Srenderer
       value: 
       objectReference: {fileID: 2118259998}
@@ -23951,9 +23955,17 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
+      propertyPath: savespeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: _lifeMaterial
       value: 
       objectReference: {fileID: 2100000, guid: d819ed82bb9983840b3bdf7787e4b3ff, type: 2}
+    - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
+      propertyPath: changePerSecond
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: dmgBubblePrefab
       value: 

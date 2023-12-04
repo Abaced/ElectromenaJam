@@ -64,7 +64,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Slider: 0.9
+    - _Slider: 0.02
     m_Colors:
     - _MainColor: {r: 0.3921569, g: 0.54901963, b: 1, a: 1}
     - _Speed: {r: -0.4, g: 0, b: 0, a: 0}
