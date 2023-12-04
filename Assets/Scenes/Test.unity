@@ -23939,12 +23939,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1852288197}
     - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
+      propertyPath: MaxLife
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: SliderPV
       value: 
       objectReference: {fileID: 1914534247}
     - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: maxSpeed
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: Srenderer
@@ -23956,7 +23960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: savespeed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9063058923464603974, guid: 7542d3dea2018eb4f98d99fecfe1aae6, type: 3}
       propertyPath: _lifeMaterial
@@ -24998,9 +25002,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1160405354}
     - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
+      propertyPath: MaxLife
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
       propertyPath: SliderPV
       value: 
       objectReference: {fileID: 5800869991141327887}
+    - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
       propertyPath: Srenderer
       value: 
@@ -25010,6 +25022,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
+      propertyPath: savespeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
       propertyPath: bubblePoint
       value: 
       objectReference: {fileID: 563260226}
@@ -25017,6 +25033,10 @@ PrefabInstance:
       propertyPath: _lifeMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 179e6c4374ac07f4ea783283133c531e, type: 2}
+    - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
+      propertyPath: changePerSecond
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1359074441206176690, guid: f9078eba249f7c5458b7e6b01333c5d3, type: 3}
       propertyPath: dmgBubblePrefab
       value: 
