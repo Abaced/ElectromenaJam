@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
     public float changePerSecond;
     public float maxSpeed;
     
+    
     void Awake()
     {
         speed = savespeed;
@@ -77,11 +78,11 @@ public class Player : MonoBehaviour
         reculDir = recul.transform.position;
 
         variableToChange += changePerSecond * Time.deltaTime;
-        if (variableToChange >= 10 && savespeed != maxSpeed) 
+        if (variableToChange >= 15 && savespeed != maxSpeed) 
         {
             savespeed += 1;
             variableToChange = 0;
-            Debug.Log(savespeed);
+            //Debug.Log(savespeed);
         }
 
     }
@@ -111,7 +112,6 @@ public class Player : MonoBehaviour
 
             rb.velocity = direction * Mathf.Max(speed, 0f);
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D trig)
